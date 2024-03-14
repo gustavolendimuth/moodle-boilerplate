@@ -5,10 +5,8 @@
 ### Baixar e executar o script
 
 ```
-# Removing existing files and folders
-rm -rf *
-
-# Baixando e executando script de instalação
+# Removing existing files and folders and downloading the setup-docker.sh file
+rm -rf * &&
 curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/main/setup-docker.sh -o setup-docker.sh &&
 chmod +x setup-docker.sh &&
 ./setup-docker.sh
@@ -17,12 +15,12 @@ chmod +x setup-docker.sh &&
 ## Adicionar certificado ssl
 
 ```
-docker exec -it ubuntu-moodle-1 bash
+sudo docker exec -it ubuntu-moodle-1 bash
 
-sudo apt-get update &&
-sudo apt-get install certbot python3-certbot-apache &&
-sudo certbot --apache
 
+apt-get update &&
+apt-get install certbot python3-certbot-apache &&
+certbot --apache
 # Configurar o Virtual Host para usar SSL
 echo '<VirtualHost *:443> \n\
   ServerAdmin webmaster@localhost \n\
