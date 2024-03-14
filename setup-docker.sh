@@ -45,7 +45,4 @@ curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/ma
 # Running Docker Compose
 sudo docker-compose up -d
 
-# Accessing the container and running Certbot
-sudo docker exec -it ubuntu-moodle-1 bash
-
 # Script end
