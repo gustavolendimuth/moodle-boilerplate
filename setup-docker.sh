@@ -1,15 +1,5 @@
 #!/bin/bash
 
-# Script start
-
-# Stopping and removing existing Docker containers and images
-sudo docker stop $(sudo docker ps -a -q)
-sudo docker rm $(sudo docker ps -a -q)
-sudo docker rmi $(sudo docker images -a -q) -f
-sudo docker volume rm $(sudo docker volume ls -q)
-sudo docker network rm $(sudo docker network ls -q)
-sudo docker-compose down
-
 # Updating package lists
 sudo apt-get update
 
@@ -37,6 +27,14 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # Downloading the latest version of Dockerfile
 curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/main/Dockerfile -o Dockerfile
+
+# Stopping and removing existing Docker containers and images
+sudo docker stop $(sudo docker ps -a -q)
+sudo docker rm $(sudo docker ps -a -q)
+sudo docker rmi $(sudo docker images -a -q) -f
+sudo docker volume rm $(sudo docker volume ls -q)
+sudo docker network rm $(sudo docker network ls -q)
+sudo docker-compose down
 
 # Building the Docker image
 sudo docker build -t moodle:4-php8 .
