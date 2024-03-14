@@ -13,6 +13,6 @@ chmod +x setup-docker.sh &&
 ## Adicionar certificado ssl
 
 ```
-sudo docker exec -it ubuntu-moodle-1 bash &&
+docker exec -it ubuntu-moodle-1 bash
 sudo certbot --apache
 ```
