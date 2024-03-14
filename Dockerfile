@@ -19,25 +19,6 @@ RUN echo 'opcache.enable=1' >> /usr/local/etc/php/conf.d/opcache-recommended.ini
 # Ajustar max_input_vars para atender às necessidades do Moodle
 RUN echo 'max_input_vars=5000' >> /usr/local/etc/php/conf.d/custom.ini
 
-# Habilitar o módulo SSL do Apache e o site padrão SSL
-RUN a2enmod ssl && \
-    a2ensite default-ssl
-
-# Configurar o Virtual Host para usar SSL
-RUN echo '<VirtualHost *:443> \n\
-    ServerAdmin webmaster@localhost \n\
-    DocumentRoot /var/www/html \n\
-    SSLEngine on \n\
-    SSLCertificateFile /etc/ssl/certs/your_domain.crt \n\
-    SSLCertificateKeyFile /etc/ssl/private/your_domain.key \n\
-    SSLCertificateChainFile /etc/ssl/certs/CA.pem \n\
-    <Directory /var/www/html/> \n\
-        AllowOverride All \n\
-    </Directory> \n\
-    ErrorLog ${APACHE_LOG_DIR}/error.log \n\
-    CustomLog ${APACHE_LOG_DIR}/access.log combined \n\
-</VirtualHost>' > /etc/apache2/sites-available/default-ssl.conf
-
 # Baixar a última versão do Moodle 4
 RUN curl -L https://download.moodle.org/download.php/direct/stable403/moodle-latest-403.tgz --output moodle.tgz \
     && tar -xzvf moodle.tgz -C /var/www/html --strip-components=1 \
