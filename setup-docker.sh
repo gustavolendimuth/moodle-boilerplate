@@ -22,7 +22,27 @@ sudo apt-get update
 sudo apt-get install -y docker-ce
 
 # Downloading the latest version of Docker Compose and making it executable
-sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+# Downloading the latest version of Dockerfile
+curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/main/Dockerfile -o Dockerfile
+
+# Stopping and removing existing Docker containers and images
+sudo docker stop $(sudo docker ps -a -q)
+sudo docker rm $(sudo docker ps -a -q)
+sudo docker rmi $(sudo docker images -a -q) -f
+sudo docker volume rm $(sudo docker volume ls -q)
+sudo docker network rm $(sudo docker network ls -q)
+sudo docker-compose down
+
+# Building the Docker image
+sudo docker build -t moodle:4-php8 .
+
+# Downloading the latest version of Docker Compose YAML file
+curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/main/docker-compose.yml -o docker-compose.yml
+
+# Running Docker Compose
+sudo docker-compose up -d
 
 # Script end

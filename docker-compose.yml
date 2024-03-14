@@ -11,7 +11,8 @@ services:
     volumes:
       - moodle_data:/var/www/html
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     restart: unless-stopped
 
   mysql:
@@ -26,6 +27,11 @@ services:
       MYSQL_PASSWORD: moodlepassword
     volumes:
       - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     restart: unless-stopped
 
   phpmyadmin:
