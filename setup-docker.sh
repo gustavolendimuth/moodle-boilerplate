@@ -43,6 +43,7 @@ sudo docker build -t moodle:4-php8 .
 curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/main/docker-compose.yml -o docker-compose.yml
 
 # Running Docker Compose
+sudo docker-compose build
 sudo docker-compose up -d
 
 # Script end
