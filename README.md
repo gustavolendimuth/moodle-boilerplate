@@ -2,14 +2,17 @@
 
 ## setup-docker.sh
 
-### Baixar o script
+```
+# Baixar e executar o script
 
-`curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/main/setup-docker.sh -o setup-docker.sh`
+curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/main/setup-docker.sh -o setup-docker.sh &&
+chmod +x setup-docker.sh &&
+./setup-docker.sh
+```
 
-### Alterar permissões
+## Adicionar certificado ssl
 
-`chmod +x setup-docker.sh`
-
-### Rodar o script
-
-`./setup-docker.sh`
+```
+sudo docker exec -it ubuntu-moodle-1 bash &&
+sudo certbot --apache
+```
