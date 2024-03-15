@@ -6,10 +6,10 @@ $CFG = new stdClass();
 
 $CFG->dbtype    = 'mysqli';
 $CFG->dblibrary = 'native';
-$CFG->dbhost    = '143.198.69.155';
-$CFG->dbname    = 'pazemente_pos';
-$CFG->dbuser    = 'posgraduacao';
-$CFG->dbpass    = 'Tnx4Lha7m9hoGJKu';
+$CFG->dbhost    = 'mysql';
+$CFG->dbname    = 'moodle';
+$CFG->dbuser    = 'moodleuser';
+$CFG->dbpass    = 'moodlepassword';
 $CFG->prefix    = '';
 $CFG->dboptions = array (
   'dbpersist' => 0,
@@ -18,7 +18,7 @@ $CFG->dboptions = array (
   'dbcollation' => 'utf8mb4_unicode_ci',
 );
 
-$CFG->wwwroot   = 'https://pos-graduacao.pazemente.online';
+$CFG->wwwroot   = 'http://18.229.141.210';
 $CFG->dataroot  = '/var/www/moodledata';
 $CFG->admin     = 'admin';
 

@@ -29,5 +29,11 @@ RUN mkdir /var/www/moodledata && \
     chown -R www-data:www-data /var/www && \
     chmod -R 777 /var/www/moodledata
 
+# Remover o diretório de instalação e o arquivo de configuração padrão
+RUN rm -rf /var/www/html/install && \
+    rm -rf /var/www/html/config.php
+
+ADD https://github.com/gustavolendimuth/moodle-boilerplate/raw/pazemente/config.php /var/www/html/config.php
+
 # Expor porta 80
 EXPOSE 80
