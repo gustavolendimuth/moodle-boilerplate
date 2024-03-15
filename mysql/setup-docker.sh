@@ -37,7 +37,7 @@ sudo docker-compose down
 curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/mysql/Dockerfile -o Dockerfile
 
 # Downloading the latest version of Docker Compose YAML file
-curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/docker-compose.yml -o docker-compose.yml
+curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/mysql/docker-compose.yml -o docker-compose.yml
 
 # Running Docker Compose
 sudo docker-compose build
