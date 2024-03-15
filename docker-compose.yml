@@ -3,7 +3,7 @@ version: "3.8"
 services:
   moodle:
     build:
-      context: ~/php
+      context: /home/ubuntu/php
       dockerfile: Dockerfile
     image: moodle:4-php8
     ports:
@@ -17,7 +17,7 @@ services:
 
   mysql:
     build:
-      context: ~/mysql
+      context: /home/ubuntu/mysql
       dockerfile: Dockerfile
     image: pazemente-mysql:8.0
     environment:
