@@ -34,8 +34,8 @@ sudo docker network rm $(sudo docker network ls -q)
 sudo docker-compose down
 
 # Downloading the latest version of Dockerfile
-curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/mysql/Dockerfile -o /mysql/Dockerfile
-curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/php/Dockerfile -o /php/Dockerfile
+curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/mysql/Dockerfile -o mysql/Dockerfile
+curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/php/Dockerfile -o php/Dockerfile
 
 # Downloading the latest version of Docker Compose YAML file
 curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/docker-compose.yml -o docker-compose.yml
