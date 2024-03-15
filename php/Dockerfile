@@ -34,7 +34,7 @@ RUN curl -L https://pos-graduacao.pazemente.online/moodledata.tar -o moodledata.
 
 RUN curl -L https://pos-graduacao.pazemente.online/theme.tar -o theme.tar && \
     rm -rf /var/www/html/theme && \
-    tar -xf theme.tar -C /var/www/html/theme && \
+    tar -xf theme.tar -C /var/www/html && \
     chown -R www-data:www-data /var/www/html/theme && \
     chmod -R 777 /var/www/html/theme
 
