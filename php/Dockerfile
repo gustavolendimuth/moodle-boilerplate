@@ -33,7 +33,7 @@ RUN mkdir /var/www/moodledata && \
 RUN rm -rf /var/www/html/install && \
     rm -rf /var/www/html/config.php
 
-ADD https://github.com/gustavolendimuth/moodle-boilerplate/raw/pazemente/config.php /var/www/html/config.php
+ADD https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/config.php /var/www/html/config.php
 
 # Expor porta 80
 EXPOSE 80
