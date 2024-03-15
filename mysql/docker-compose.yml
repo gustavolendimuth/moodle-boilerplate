@@ -19,6 +19,8 @@ services:
       timeout: 5s
       retries: 5
     restart: unless-stopped
+    ports:
+      - "3306:3306"
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
