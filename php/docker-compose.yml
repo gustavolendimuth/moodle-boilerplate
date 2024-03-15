@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  moodle:
+    build:
+      context: /home/ubuntu
+      dockerfile: Dockerfile
+    image: moodle:4-php8
+    ports:
+      - "80:80"
+    volumes:
+      - moodle_data:/var/www/html
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  moodle_data:

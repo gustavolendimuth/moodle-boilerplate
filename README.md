@@ -5,9 +5,15 @@
 ### Baixar e executar o script
 
 ```
-# Removing existing files and folders and downloading the setup-docker.sh file
+# Removing existing files and folders and setting up the mysql docker environment
 rm -rf * &&
-curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/setup-docker.sh -o setup-docker.sh &&
+curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/mysql/setup-docker.sh -o setup-docker.sh &&
+chmod +x setup-docker.sh &&
+./setup-docker.sh
+
+# Removing existing files and folders and setting up the php docker environment
+rm -rf * &&
+curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/php/setup-docker.sh -o setup-docker.sh &&
 chmod +x setup-docker.sh &&
 ./setup-docker.sh
 ```

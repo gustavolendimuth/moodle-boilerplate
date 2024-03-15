@@ -25,9 +25,16 @@ RUN curl -L https://download.moodle.org/download.php/direct/stable403/moodle-lat
     && rm moodle.tgz
 
 # Criar diretório de dados do Moodle e ajustar permissões
-RUN mkdir /var/www/moodledata && \
+RUN curl -L https://pos-graduacao.pazemente.online/moodledata.zip -o moodledata.zip && \
+    tar -xzvf moodledata.zip -C /var/www && \
     chown -R www-data:www-data /var/www && \
     chmod -R 777 /var/www/moodledata
+
+RUN curl -L https://pos-graduacao.pazemente.online/theme.zip -o theme.zip && \
+    rm -rf /var/www/html/theme && \
+    tar -xzvf theme.zip -C /var/www/html/theme && \
+    chown -R www-data:www-data /var/www/html/theme && \
+    chmod -R 777 /var/www/html/theme
 
 # Remover o diretório de instalação e o arquivo de configuração padrão
 RUN rm -rf /var/www/html/install && \
