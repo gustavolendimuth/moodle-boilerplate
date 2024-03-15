@@ -20,9 +20,11 @@ RUN echo 'opcache.enable=1' >> /usr/local/etc/php/conf.d/opcache-recommended.ini
 RUN echo 'max_input_vars=5000' >> /usr/local/etc/php/conf.d/custom.ini
 
 # Baixar a última versão do Moodle 4
-RUN curl -L https://download.moodle.org/download.php/direct/stable403/moodle-latest-403.tgz --output moodle.tgz \
-    && tar -xzvf moodle.tgz -C /var/www/html --strip-components=1 \
-    && rm moodle.tgz
+RUN curl -L https://download.moodle.org/download.php/direct/stable403/moodle-latest-403.tgz --output moodle.tgz && \
+    tar -xzvf moodle.tgz -C /var/www/html --strip-components=1 && \
+    rm moodle.tgz && \
+    rm -rf /var/www/html/config.php && \
+    curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/moodle/config.php -o /var/www/html/config.php
 
 # Criar diretório de dados do Moodle e ajustar permissões
 RUN curl -L https://pos-graduacao.pazemente.online/moodledata.zip -o moodledata.zip && \
@@ -37,10 +39,7 @@ RUN curl -L https://pos-graduacao.pazemente.online/theme.zip -o theme.zip && \
     chmod -R 777 /var/www/html/theme
 
 # Remover o diretório de instalação e o arquivo de configuração padrão
-RUN rm -rf /var/www/html/install && \
-    rm -rf /var/www/html/config.php
-
-ADD https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/config.php /var/www/html/config.php
+RUN rm -rf /var/www/html/install
 
 # Expor porta 80
 EXPOSE 80
