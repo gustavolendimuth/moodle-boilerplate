@@ -27,14 +27,14 @@ RUN curl -L https://download.moodle.org/download.php/direct/stable403/moodle-lat
     curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/moodle/config.php -o /var/www/html/config.php
 
 # Criar diretório de dados do Moodle e ajustar permissões
-RUN curl -L https://pos-graduacao.pazemente.online/moodledata.zip -o moodledata.zip && \
-    tar -xzvf moodledata.zip -C /var/www && \
+RUN curl -L https://pos-graduacao.pazemente.online/moodledata.tar -o moodledata.tar && \
+    tar -xf moodledata.tar -C /var/www && \
     chown -R www-data:www-data /var/www && \
     chmod -R 777 /var/www/moodledata
 
-RUN curl -L https://pos-graduacao.pazemente.online/theme.zip -o theme.zip && \
+RUN curl -L https://pos-graduacao.pazemente.online/theme.tar -o theme.tar && \
     rm -rf /var/www/html/theme && \
-    tar -xzvf theme.zip -C /var/www/html/theme && \
+    tar -xf theme.tar -C /var/www/html/theme && \
     chown -R www-data:www-data /var/www/html/theme && \
     chmod -R 777 /var/www/html/theme
 
