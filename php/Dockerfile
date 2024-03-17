@@ -23,7 +23,7 @@ RUN echo 'max_input_vars=5000' >> /usr/local/etc/php/conf.d/custom.ini
 RUN curl -L https://download.moodle.org/download.php/direct/stable403/moodle-latest-403.tgz --output moodle.tgz && \
     tar -xzvf moodle.tgz -C /var/www/html --strip-components=1 && \
     rm moodle.tgz && \
-    rm -rf /var/www/html/config.php && \
+    rm /var/www/html/config.php && \
     curl -L https://raw.githubusercontent.com/gustavolendimuth/moodle-boilerplate/pazemente/moodle/config.php -o /var/www/html/config.php
 
 # Criar diretório de dados do Moodle e ajustar permissões
